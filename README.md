@@ -1,1 +1,1 @@
-# Visual-SQL-Playground
+Built a Visual SQL Playground using HTML, CSS, and JavaScript that lets users upload CSVs and visually compose queries (Select, Filter, Group By, Aggregate, Order By) with instant results, pseudo-SQL, and an explainable pipeline.
