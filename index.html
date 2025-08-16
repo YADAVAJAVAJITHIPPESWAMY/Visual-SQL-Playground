@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Visual SQL Playground </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Visual SQL Playground</h1>
+    <input id="fileInput" type="file" accept=".csv" />
+  </header>
+
+  <main class="grid">
+    <section class="panel">
+      <h2>Columns</h2>
+      <div id="columns" class="pillbox"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Select</h2>
+      <div id="selectLane" class="lane"></div>
+      <div class="row">
+        <label>Aggregate:
+          <select id="aggSelect">
+            <option value="">None</option>
+            <option value="COUNT">COUNT</option>
+            <option value="SUM">SUM</option>
+            <option value="AVG">AVG</option>
+            <option value="MIN">MIN</option>
+            <option value="MAX">MAX</option>
+          </select>
+        </label>
+        <label>Aggregate Column:
+          <select id="aggColumn"></select>
+        </label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Filter</h2>
+      <div class="row">
+        <label>Column:
+          <select id="filterCol"></select>
+        </label>
+        <label>Op:
+          <select id="filterOp">
+            <option value="gt">&gt;</option>
+            <option value="lt">&lt;</option>
+            <option value="eq">=</option>
+            <option value="neq">!=</option>
+            <option value="contains">contains</option>
+          </select>
+        </label>
+        <label>Value:
+          <input id="filterVal" type="text" />
+        </label>
+        <button id="addFilter" type="button">Add Filter</button>
+      </div>
+      <ul id="filters" class="chips"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>Group By</h2>
+      <div class="row">
+        <label>Column:
+          <select id="groupByCol"></select>
+        </label>
+        <button id="addGroupBy" type="button">Add Group</button>
+      </div>
+      <ul id="groupBys" class="chips"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>Order By</h2>
+      <div class="row">
+        <label>Column:
+          <select id="orderByCol"></select>
+        </label>
+        <label>Dir:
+          <select id="orderDir">
+            <option value="desc">DESC</option>
+            <option value="asc">ASC</option>
+          </select>
+        </label>
+        <button id="applyOrder" type="button">Apply</button>
+      </div>
+    </section>
+
+    <section class="panel span2">
+      <h2>Preview</h2>
+      <div id="stats" class="stats"></div>
+      <table id="resultTable"></table>
+    </section>
+
+    <section class="panel span2">
+      <h2>Pseudo‑SQL</h2>
+      <pre id="sqlBox" class="code"></pre>
+      <h3>Explain</h3>
+      <pre id="explainBox" class="code"></pre>
+    </section>
+  </main>
+
+  <footer class="footer">Tip: Start by uploading a CSV (Region, Sales, Rep)</footer>
+  <script src="script.js"></script>
+</body>
+</html>
